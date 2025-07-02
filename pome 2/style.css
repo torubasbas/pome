@@ -101,7 +101,8 @@ header h1 {
 /* --- カード & 結果エリア --- */
 .results-area {
   display: grid;
-  grid-template-columns: 1fr;
+  /* ★ 変更点(1): スマホ表示を2列に変更 */
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 .card {
@@ -158,7 +159,8 @@ header h1 {
 
   /* --- カード & 結果エリア --- */
   .results-area {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* ★ 変更点(2): PC表示を3列に変更 */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
   }
 }
