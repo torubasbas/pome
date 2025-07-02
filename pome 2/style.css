@@ -277,7 +277,7 @@ header h1 {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 100%;
+  width: 80%;
   padding: 16px 20px;
   background: #06C755; /* LINEのブランドカラー */
   color: white;
@@ -316,6 +316,6 @@ header h1 {
     font-size: 17px;
   }
   .cta-button {
-    width: 80%; /* PCではボタンが横に広がりすぎないように */
+    width: 100%; /* PCではボタンが横に広がりすぎないように */
   }
 }
