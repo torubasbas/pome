@@ -101,9 +101,8 @@ header h1 {
 /* --- カード & 結果エリア --- */
 .results-area {
   display: grid;
-  /* ★ 変更点(1): スマホ表示を2列に変更 */
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 15px; /* ★ 変更: カード間の余白を少し詰める */
 }
 .card {
   background: var(--neum-bg); border-radius: var(--border-radius-lg);
@@ -112,13 +111,28 @@ header h1 {
 }
 .card:hover { transform: scale(1.02); }
 .card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-.card .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-.card .desc { font-size: 15px; line-height: 1.6; margin: 0; flex-grow: 1; }
-.card .limit { color: var(--text-color-light); font-size: 13px; margin: 15px 0 0 0; }
-.card .card-action { padding: 0 20px 20px 20px; }
+.card .card-content {
+  padding: 15px; /* ★ 変更: カード内の余白を少し詰める */
+  flex-grow: 1; display: flex; flex-direction: column;
+}
+.card .desc {
+  font-size: 14px; /* ★ 変更: 説明文のフォントを少し小さく */
+  line-height: 1.5; /* ★ 変更: 行間を少し詰める */
+  margin: 0; flex-grow: 1;
+}
+.card .limit {
+  color: var(--text-color-light);
+  font-size: 12px; /* ★ 変更: 配布期限のフォントを小さく */
+  margin: 12px 0 0 0; /* ★ 変更: 上の余白を少し詰める */
+}
+.card .card-action {
+  padding: 0 15px 15px 15px; /* ★ 変更: ボタンエリアの余白を調整 */
+}
 .card a {
   background: var(--accent-color); color: white; text-decoration: none; display: block;
-  padding: 12px 15px; border-radius: var(--border-radius-md);
+  /* ボタン自体の大きさは変更しない (padding: 12px 15px) */
+  padding: 12px 15px;
+  border-radius: var(--border-radius-md);
   text-align: center; font-weight: bold; transition: var(--transition);
 }
 .card a:hover { background: var(--accent-color-dark); transform: scale(1.03); }
@@ -159,7 +173,6 @@ header h1 {
 
   /* --- カード & 結果エリア --- */
   .results-area {
-    /* ★ 変更点(2): PC表示を3列に変更 */
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
   }
