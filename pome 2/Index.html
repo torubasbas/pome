@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ぽめ プレゼントページ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- 外部フォントとライブラリ -->
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- 外部CSSファイルを読み込み -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="header-content">
+    <img src="https://pbs.twimg.com/profile_images/1931541461654503424/gTCdB12V_400x400.jpg" alt="プロフィール画像" class="profile-image">
+    <div class="header-text">
+      <h1>ぽめ プレゼントページ</h1>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- 固定プレゼントセクション -->
+  <section id="fixed-section" class="content-section" style="display: none;">
+    <div class="section-title-wrapper">
+      <h2>🎁 限定プレゼント</h2>
+    </div>
+    <div id="fixed-loader" class="loader"></div>
+    <div id="fixed" class="results-area" style="display: none;"></div>
+  </section>
+
+  <!-- 検索セクション -->
+  <section class="search-wrapper">
+    <p>希望のプレゼントのキーワードを入力してください</p>
+    <div class="search-box">
+      <input type="text" id="keyword" placeholder="例：ぽめ、0円">
+      <button onclick="search()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display: block;">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+        <span>検索</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 検索結果セクション -->
+  <section class="content-section">
+    <div id="loader" class="loader" style="display:none;"></div>
+    <div id="results" class="results-area"></div>
+    <div id="noresults" class="notfound" style="display:none;">
+      入力されたキーワードに該当するプレゼントはありませんでした。<br>
+      ・キーワードが間違っている可能性があります<br>
+      ・または、プレゼントの配布期限が終了している可能性があります
+    </div>
+  </section>
+</main>
+
+<!-- 外部ライブラリとJavaScriptファイルを読み込み -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
