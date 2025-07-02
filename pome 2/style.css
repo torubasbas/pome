@@ -177,3 +177,145 @@ header h1 {
     gap: 30px;
   }
 }
+
+/* style.css */
+
+/* =============================================================== */
+/* --- CTAセクションのスタイル --- */
+/* =============================================================== */
+.cta-wrapper {
+  background: var(--neum-bg);
+  margin: 30px 15px; /* 上下の余白 */
+  border-radius: var(--border-radius-lg);
+  box-shadow: 7px 7px 15px var(--neum-shadow-dark), -7px -7px 15px var(--neum-shadow-light);
+  padding: 30px 20px 40px; /* 上・左右・下の余白 */
+}
+
+.cta-wrapper .section-title-wrapper {
+  margin-bottom: 25px;
+}
+
+.cta-wrapper h2 .highlight {
+  /* グラデーションでアンダーラインを引く */
+  background: linear-gradient(transparent 70%, var(--accent-color) 70%);
+}
+
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-content p {
+  line-height: 1.8;
+  font-size: 16px;
+  margin: 0 0 25px 0;
+}
+
+.cta-content .cta-lead {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.cta-content strong {
+  color: var(--accent-color-dark);
+  font-weight: 700;
+}
+
+.cta-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 25px auto;
+  display: inline-block; /* 中央寄せのため */
+  text-align: left;
+}
+
+.cta-list li {
+  background: var(--neum-bg);
+  box-shadow: inset 3px 3px 6px var(--neum-shadow-dark), inset -3px -3px 6px var(--neum-shadow-light);
+  padding: 12px 20px 12px 45px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 12px;
+  position: relative;
+  font-weight: 500;
+}
+
+.cta-list li::before {
+  content: '✔'; /* チェックマーク */
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.cta-howto {
+  margin: 30px 0;
+}
+
+.cta-howto-title {
+  font-weight: bold;
+  margin-bottom: 15px !important; /* 他のpタグのmarginを上書き */
+}
+
+.cta-howto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.cta-support {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 30px !important;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 20px;
+  background: #06C755; /* LINEのブランドカラー */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: var(--border-radius-lg);
+  transition: var(--transition);
+  box-shadow: 0 4px 10px rgba(6, 199, 85, 0.4);
+  margin-top: 20px;
+}
+.cta-button:hover {
+  background: #05a546;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(6, 199, 85, 0.5);
+}
+
+.cta-button svg {
+  width: 28px; /* LINEアイコンのSVGを少し大きく調整 */
+  height: 28px;
+  /* Font AwesomeのLINEアイコンのSVGをInstagram風に加工 */
+  transform-origin: center;
+  transform: scale(1.4);
+}
+
+
+/* =============================================================== */
+/* --- PC用のCTAスタイル (画面幅が768px以上になったら適用) --- */
+/* =============================================================== */
+@media (min-width: 768px) {
+  .cta-wrapper {
+    margin: 40px 20px;
+    padding: 50px 40px;
+  }
+  .cta-content p {
+    font-size: 17px;
+  }
+  .cta-button {
+    max-width: 450px; /* PCではボタンが横に広がりすぎないように */
+  }
+}
