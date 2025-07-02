@@ -197,7 +197,7 @@ header h1 {
 
 .cta-wrapper h2 .highlight {
   /* グラデーションでアンダーラインを引く */
-  background: linear-gradient(transparent 70%, var(--accent-color) 70%);
+  background: linear-gradient(transparent 90%, var(--accent-color) 100%);
 }
 
 .cta-content {
