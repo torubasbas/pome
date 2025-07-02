@@ -31,20 +31,22 @@ const keywordInput = document.getElementById("keyword");
  */
 function createCard(item) {
   const card = document.createElement("div");
-  // ★ 修正: CSSで指定したクラス名 "result-item" に変更
-  card.className = "result-item"; 
+  // ★ 修正点①: CSSを適用させるため、クラス名を "card" から "result-item" に変更
+  card.className = "result-item";
   card.setAttribute("data-aos", "fade-up");
   
-  // limitTextはサンプルのHTMLにはなかったので、ご自身のカードデザインに合わせて調整してください
   const limitText = item.limit ? `<p class="limit">📅 配布期限: ${item.limit}</p>` : '';
-  const titleText = item.desc ? `<h3>${item.desc}</h3>` : ''; // descをh3として表示する例
   
-  // 前回のHTML提案に合わせたカード構造の例
+  // 元のHTML構造はそのまま維持します
   card.innerHTML = `
     <img src="${item.img}" alt="プレゼントのサムネイル" loading="lazy">
-    ${titleText}
-    ${limitText}
-    <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="button">受け取る</a>
+    <div class="card-content">
+      <p class="desc">${item.desc}</p>
+      ${limitText}
+    </div>
+    <div class="card-action">
+      <a href="${item.url}" target="_blank" rel="noopener noreferrer">受け取る</a>
+    </div>
   `;
   return card;
 }
@@ -63,8 +65,8 @@ function displayAllResults(data) {
   if (data && data.fixed && data.fixed.length > 0) {
     fixedContainer.innerHTML = "";
     data.fixed.forEach(item => fixedContainer.appendChild(createCard(item)));
-    // ★ 修正: "grid" から "flex" に変更してFlexboxレイアウトを適用
-    fixedContainer.style.display = "flex"; 
+    // ★ 修正点②: Flexboxレイアウトを有効にするため "grid" から "flex" に変更
+    fixedContainer.style.display = "flex";
     fixedSection.style.display = "block";
   } else {
     fixedSection.style.display = "none";
@@ -93,17 +95,11 @@ function displayAllResults(data) {
 function search() {
   const keyword = keywordInput.value.trim();
   // 検索キーワードが空なら何もしない
-  if (!keyword) {
-    // キーワードが空の場合は全件表示に戻す（固定＋通常）
-    window.dispatchEvent(new Event('load'));
-    return;
-  }
-
+  if (!keyword) return;
 
   searchLoader.style.display = "block";
   resultsContainer.innerHTML = "";
   noresults.style.display = "none";
-  fixedSection.style.display = "none"; // 検索中は固定プレゼントを非表示に
   
   // fetchを使ってGASのAPIにデータをリクエスト
   fetch(`${GAS_API_URL}?keyword=${encodeURIComponent(keyword)}`)
@@ -131,11 +127,8 @@ function search() {
 window.addEventListener('load', () => {
   fixedLoader.style.display = "block";
   fixedSection.style.display = "block";
-  searchLoader.style.display = "block"; // ローダーを両方表示
-  resultsContainer.innerHTML = "";
-  keywordInput.value = ""; // 検索ボックスを空にする
 
-  // まずは固定プレゼントと通常プレゼントの全件を取得するためにキーワード空でリクエスト
+  // まずは固定プレゼントだけを取得するためにキーワード空でリクエスト
   fetch(`${GAS_API_URL}?keyword=`)
     .then(response => response.json())
     .then(data => {
@@ -144,8 +137,7 @@ window.addEventListener('load', () => {
     .catch(error => {
       console.error('Error fetching initial data:', error);
       fixedLoader.style.display = "none";
-      searchLoader.style.display = "none";
-      alert("データの取得に失敗しました。ページを再読み込みしてください。");
+      // ここでエラー表示をしても良い
     });
 });
 
