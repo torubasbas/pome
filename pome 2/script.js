@@ -1,7 +1,7 @@
 // ==================================================
 // ★★★★★ 重要 ★★★★★
 // GASをデプロイして取得したWebアプリのURLをここに貼り付ける
-const GAS_API_URL = "https://script.google.com/macros/s/AKfycbzWZd4iQQg1tdo2WiJaN--T7WNHIJE6Ff-7Zq1SBIDSGKlsiCzsivSOs3oqRbakzyL1Wg/exec";
+const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxJzHptKebMlaNeO-U7xiXF3UyEYaWzgp_dUfj3bKGcURRMZHJc9HglXonKGcsW_PELLA/exec";
 // ==================================================
 
 
@@ -144,3 +144,4 @@ keywordInput.addEventListener('keypress', (e) => {
     search();
   }
 });
+
